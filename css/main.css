@@ -1,0 +1,311 @@
+/* Specification */
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5em;
+    color: #4F4F4F;
+    background-color: #F2F2F2;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1em;
+    color: #333333;
+}
+
+ul, li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+    transition: all 0.5s ease;
+}
+
+img{
+    max-width: 100%;
+    object-fit: cover;
+}
+
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+input, button{
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-family: inherit;
+    padding: 0;
+}
+
+button{
+    cursor: pointer;
+}
+
+.grid__wrapper{
+    display: flex;
+    background: transparent;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: fixed;
+    z-index: 3;
+}
+
+.grid__item{
+    background: transparent;
+    justify-content: space-between;
+    opacity: 0.15;
+    flex-grow: 1;
+    animation-name: grow;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+}
+
+.grid__item:not(:last-of-type){
+    border-right: 1px solid #6F87A0;
+}
+
+/* Section car */
+
+.car{
+    padding-top: 100px;
+    display: flex;
+}
+
+/*  slider */
+
+.slide{
+    z-index: 5;
+}
+
+.gallery{
+    width: 760px;
+    left: auto;
+    position: relative;
+}
+
+.gallery__item{
+    display: none;
+    width: 760px;
+    height: 540px;
+    animation: clip-in-right 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: both; 
+}
+
+.gallery__item.active{
+  display: block;
+}
+
+.gallery__img{
+    width: 760px;
+    height: 540px;
+    object-fit: contain;
+}
+
+@keyframes clip-in-right {
+    from {
+      clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%); 
+    }
+    to {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); 
+    } 
+}
+
+.white-square{
+    width: 120px;
+    height: 90px;
+    background-color: #F2F2F2;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.dots-wrapper{
+    display: flex;
+    margin: 10px 0 15px;
+}
+
+.dot{
+    width: 180px;
+    height: 120px;
+    opacity: 0.5;
+}
+
+.dot.active{
+    opacity: 1;
+}
+
+.dot:first-of-type{
+    background: url(../img/photo2.jpg) no-repeat center center/contain;
+}
+
+.dot:nth-of-type(2){
+    background: url(../img/photo3.jpg) no-repeat center center/contain;
+}
+
+.dot:nth-of-type(3){
+    background: url(../img/photo4.jpg) no-repeat center center/contain;
+}
+
+.dot:nth-of-type(4){
+    background: url(../img/photo5.jpg) no-repeat center center/contain;
+}
+
+/* Coontent */
+
+.content{
+    width: 80%;
+    margin-left: 70px;
+}
+
+.content__title{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 36px;
+}
+
+.content__text{
+    line-height: 1.5em; 
+    font-size: 14px;
+    color: #4F4F4F;
+}
+
+.about-car{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px 0 71px;
+}
+
+.about-car__item{
+    width: 180px;
+    margin-right: 50px;
+    font-size: 13px;
+}
+
+.btn__text{
+    z-index: 6;
+}
+
+.btn{
+    width: 320px;
+    height: 60px;
+    display: flex;
+    margin: 0 auto;
+    background: #EB5757;
+    background: linear-gradient(90deg, #EB5757 0%, #E62887 100%);
+    box-shadow: 0 5px 15px rgba(230, 40, 135, 0.5);
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    z-index: 4;
+    transform: matrix(0.98, 0, -0.18, 1, 0, 0);
+    transition: all 0.5s ease;
+    position: relative;
+}
+
+.btn:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    margin: 0;
+    background: linear-gradient(90deg, #E62887 0%, #EB5757 100%);
+    box-shadow: 0 5px 15px rgba(230, 40, 135, 0.5);
+    transition: all .4s ease-in-out;
+    opacity: 0;
+    z-index: 4; 
+}
+
+.btn:hover:before{
+    opacity: 1; 
+}
+
+/* Section interesting facts */
+
+.facts{
+    display: flex;
+}
+
+.facts_left{
+        width: 42%;
+        background: linear-gradient(90deg, #2F3B47 0%, #435465 100%);
+        height: 500px;
+}
+
+.facts_right{
+    width: 58%;
+    background: linear-gradient(90deg, #2F3B47 0%, #435465 100%);
+    height: 500px;
+    margin-top: 115px;
+}
+
+.about{
+    width: 600px;
+    display: block;
+    margin: 83px auto 197px;
+}
+
+.about__text{
+    color: #ffffff;
+}
+
+.heading{
+    display: flex;
+    align-items: center;
+    margin: 265px 0 0 110px;
+}
+
+.heading__logo{
+    width: 87px;
+    height: 87px;
+    display: block;
+    background: url(../img/Frame.png) no-repeat center center/contain;
+    margin-right: 31px;
+}
+
+.heading__item-text{
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.heading__item-title{
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 1.1em;
+    letter-spacing: -0.03em;
+    color: #F2F2F2;
+}
